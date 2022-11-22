@@ -4,7 +4,7 @@ namespace App\Services;
 
 class DiscountService
 {
-	public function applyDiscountOnOverAThousandEuroRevenue(float $customer_revenue, float $total_price_order) :float
+	public function applyTenPercentDiscountOnOverAThousandRevenue(float $customer_revenue, float $total_price_order) :float
 	{	
 		$total_discount = 0;
 		if($customer_revenue > 1000){
@@ -38,19 +38,18 @@ class DiscountService
 
 	public function applyDiscountOnTwoOrMoreToolsCategory(array $order_items, array $product_ids): float
 	{
-		
         $counter = 0;
         $total_discount = 0;
-        $priceList = [];
+        $price_list = [];
         foreach($order_items as $key => $item){
             if(in_array($item['product-id'], $product_ids)){
                 $counter = $key+1;
-                $priceList[] = $item['total'];
+                $price_list[] = $item['total'];
             }
         }
 
         if($counter >= 2){
-            $discount = 0.2 * min($priceList);
+            $discount = 0.2 * min($price_list);
             $total_discount = $discount;
         }
 

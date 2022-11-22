@@ -30,7 +30,7 @@ class OrderController extends Controller
        if($customer){
             $item_total_discount = 0;
             $item_total_discount = $this->discountService
-                                    ->applyDiscountOnOverAThousandEuroRevenue($customer->revenue, $request['total']);
+                                    ->applyTenPercentDiscountOnOverAThousandRevenue($customer->revenue, $request['total']);
             
             $product_switch_ids = Product::where('category', 2)->pluck('id as ids')->toArray();
             $item_total_discount += $this->discountService

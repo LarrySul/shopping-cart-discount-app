@@ -18,7 +18,7 @@ class DiscountTest extends TestCase
        ];
 
        $discount = (new DiscountService())
-                    ->applyDiscountOnOverAThousandEuroRevenue($data['customer-revenue'], $data['total']);
+                    ->applyTenPercentDiscountOnOverAThousandRevenue($data['customer-revenue'], $data['total']);
 
         $this->assertEquals(23.59, round($discount, 2));
     }
