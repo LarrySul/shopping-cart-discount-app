@@ -58,7 +58,7 @@ class OrderController extends Controller
             $customer_update = $customer->update(['revenue' => $revenue]);
 
             return response()->json([
-                'status' => 200,
+                'status' => 201,
                 'message' => 'Order created successfully',
                 'data' => $order_array
             ]);

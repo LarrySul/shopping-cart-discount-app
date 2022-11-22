@@ -5,15 +5,15 @@ This CLI program is built on the LARAVEL FRAMEWORK. The program is built to impl
 
 <p> The program has three (3) endpoints </p>
 
-<li> Create customer - Create customer endpoint </li>
+<li> Create customer - Create customer endpoint </li> <br>
 
 ![Screenshot for Create customer endpoint](https://github.com/LarrySul/shopping-cart-discount-app/blob/feature/public/screenshots/customer.png)
 
-<li> Create product - Create product endpoint </li>
+<li> Create product - Create product endpoint </li> <br>
 
 ![Screenshot for Create product endpoint ](https://github.com/LarrySul/shopping-cart-discount-app/blob/feature/public/screenshots/product.png)
 
-<li> Create order - The endpoint calculate discount, create order and update customer revenue column on customer table  </li>
+<li> Create order - The endpoint calculate discount, create order and update customer revenue column on customer table  </li> <br>
 
 ![Screenshot for calculating discount, create order endpoint ](https://github.com/LarrySul/shopping-cart-discount-app/blob/feature/public/screenshots/order.png)
 
