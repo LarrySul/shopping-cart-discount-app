@@ -10,7 +10,7 @@ class DiscountTest extends TestCase
     protected $discount;
     protected $data;
 
-    public function testApplyTenPercentDiscountOverThousandEuroRevenue()
+    public function testApplyTenPercentDiscountOnOverAThousandEuroRevenue()
     {
        $data = [
             'customer-revenue' => 1501.44,
@@ -23,7 +23,7 @@ class DiscountTest extends TestCase
         $this->assertEquals(23.59, round($discount, 2));
     }
 
-    public function testApplyDiscountOnSwitchCategoryWhenItemExceedFive()
+    public function testApplyDiscountOnSixthItemForSwitchCategoryWhenItemExceedFive()
     {
         $order_items = [
             [
