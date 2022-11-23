@@ -27,17 +27,18 @@ class OrderController extends Controller
     {
        $request = collect($request)->toArray(); 
        $customer = Customer::find($request['customer-id']);
+       $product = Product::select('id', 'category')->whereIn('category',[1, 2])->get();
        if($customer){
             $item_total_discount = 0;
             $item_total_discount = $this->discountService
                                     ->applyTenPercentDiscountOnOverAThousandRevenue($customer->revenue, $request['total']);
             
-            $product_switch_ids = Product::where('category', 2)->pluck('id as ids')->toArray();
+            $product_switch_ids = collect($product)->where('category', 2);
             $item_total_discount += $this->discountService
                                     ->applyDiscountOnSwitchCategory($request['items'], $product_switch_ids);
 
             
-            $product_tool_ids = Product::where('category', 1)->pluck('id as ids')->toArray();
+            $product_tool_ids = collect($product)->where('category', 1);
             $item_total_discount += $this->discountService
                                     ->applyDiscountOnTwoOrMoreToolsCategory($request['items'], $product_tool_ids);
 
